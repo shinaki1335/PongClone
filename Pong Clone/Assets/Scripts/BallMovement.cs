@@ -15,16 +15,16 @@ public class BallMovement : MonoBehaviour
     float xBorder = 7.5f;           //variable for horizontal border
     public float yBorder = 4.5f;    //variable for vertical border
 
-    public int playerOneScore;
-    public int playerTwoScore;
-    public Text scoreTextP1;
-    public Text scoreTextP2;
+    // public int playerOneScore;
+    // public int playerTwoScore;
+    // public Text scoreTextP1;
+    // public Text scoreTextP2;
 
     // Start is called before the first frame update
     void Start()
     {
-        xSpeed = 0.125f;    //declare value of horizontal speed
-        ySpeed = 0.125f;    //declare value of vertical speed        
+        xSpeed = 0.025f;    //declare value of horizontal speed
+        ySpeed = 0.025f;    //declare value of vertical speed        
     }
 
     // Update is called once per frame
@@ -52,24 +52,24 @@ public class BallMovement : MonoBehaviour
             transform.position = new Vector2(transform.position.x - xSpeed, transform.position.y);  //move left
         }
         if (transform.position.x >= xBorder){       //if ball get to the right edge
-            // xMove = false;                          //bounce left
-            transform.position = Vector2.zero;   //reset ball
-            playerOneScore ++;
+            xMove = false;                          //bounce left
+            // transform.position = Vector2.zero;   //reset ball
+            // playerOneScore ++;
 
         }
         if (transform.position.x <= -xBorder){      //if ball get to the left edge
-            //  xMove = true;                          //bounce right
-            transform.position = Vector2.zero;   //reset ball
-            playerTwoScore ++;
+             xMove = true;                          //bounce right
+            // transform.position = Vector2.zero;   //reset ball
+            // playerTwoScore ++;
         }
         
-        scoreTextP1.text = playerOneScore.ToString();
-        scoreTextP2.text = playerTwoScore.ToString();
+        // scoreTextP1.text = playerOneScore.ToString();
+        // scoreTextP2.text = playerTwoScore.ToString();
     }
 
     void OnCollisionEnter2D(Collision2D collision){  //when collision happend
 
-       if (collision.collider.CompareTag ("Player")){ //if the other object is the player
+       if (collision.collider.CompareTag ("RPlayer")){ //if the other object is the player
         Debug.Log("hit");                                //tell me it hit
         
         // bouce off the other direction

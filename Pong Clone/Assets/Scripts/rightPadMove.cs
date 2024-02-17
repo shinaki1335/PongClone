@@ -21,10 +21,10 @@ public class rightPadMove : MonoBehaviour
         var velocity = rb2d.velocity;    //create and declare variable for velocity
 
         //control the paddle
-         if (Input.GetKey(KeyCode.O) && transform.position.y < yBorder) { //when O is pressed and still inside edge
+         if (Input.GetKey(KeyCode.O) && transform.position.y < yBorder /*&& CompareTag("RPlayer")*/) { //when O is pressed and still inside edge
             velocity.y = speed;      //move the speed up
             }
-            else if (Input.GetKey(KeyCode.L) && transform.position.y > -yBorder){ //when L is pressed and still inside edge
+            else if (Input.GetKey(KeyCode.L) && transform.position.y > -yBorder /*&& CompareTag("RPlayer")*/){ //when L is pressed and still inside edge
                 velocity.y = -speed;           //move the speed down
                 Debug.Log ("L");
             }
